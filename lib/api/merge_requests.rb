@@ -94,7 +94,7 @@ module API
       post ":id/merge_requests" do
         authorize! :write_merge_request, user_project
         required_attributes! [:source_branch, :target_branch, :title]
-        attrs = attributes_for_keys [:source_branch, :target_branch, :assignee_id, :title, :target_project_id, :description]
+        attrs = attributes_for_keys [:source_branch, :target_branch, :assignee_id, :title, :target_project_id, :description, :milestone_id]
 
         # Validate label names in advance
         if (errors = validate_label_params(params)).any?
